@@ -64,9 +64,9 @@ with requests.get(url="https://www.alphavantage.co/query?", params=stock_paramet
     stock_data = response.json()
     # print(stock_data)
     # print(curr_date)
-    yesterday_data_close = float(stock_data["Time Series (Daily)"][str(curr_date-dt.timedelta(days=1))]["3. low"])
+    yesterday_data_close = float(stock_data["Time Series (Daily)"][str(curr_date-dt.timedelta(days=1))]["4. close"])
     # print(yesterday_data)
-    previous_day_data_close = float(stock_data["Time Series (Daily)"][str(curr_date-dt.timedelta(days=2))]["3. low"])
+    previous_day_data_close = float(stock_data["Time Series (Daily)"][str(curr_date-dt.timedelta(days=2))]["4. close"])
     # print(previous_day_data_close)
     change = abs(yesterday_data_close - previous_day_data_close)/previous_day_data_close * 100
     if yesterday_data_close < previous_day_data_close:
